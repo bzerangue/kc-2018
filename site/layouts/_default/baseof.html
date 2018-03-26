@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <base href="{{ $.Site.BaseURL }}">
+    <title>
+      {{- block "title" . -}}
+        {{ if .Page.Title }}{{ .Page.Title }} - {{ end }}{{ .Site.Title }}
+      {{- end -}}
+    </title>
+    <meta name="author" content="{{ $.Param "author" }}">
+    <meta name="description" content="{{ $.Param "description" }}">
+    {{/* <link rel="stylesheet" href="https://unpkg.com/tachyons@4.9.1/css/tachyons.min.css"/> */}}
+    <link rel="stylesheet" href="{{ "css/tachyons.min.css" | relURL }}"/>
+    {{/* <link rel="stylesheet" href="{{ "css/styles.min.css" | relURL }}"/> */}}
+  </head>
+<body class="sans-serif bg-dark-blue">
+  {{ partial "nav.html" }}
+  {{ block "content" . }}{{ end }}
+
+
+  <script async src="{{ "/js/scripts.min.js" | relURL }}" type="text/javascript"></script>
+</body>
+</html>
